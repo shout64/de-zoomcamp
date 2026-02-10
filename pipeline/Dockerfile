@@ -4,8 +4,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 WORKDIR /code
 
 COPY pyproject.toml .python-version uv.lock ./
-COPY pipeline.py .
+COPY ingest_data.py .
 
 RUN uv sync --locked
 
-ENTRYPOINT ["uv", "run", "pipeline.py"]
+ENTRYPOINT ["uv", "run", "ingest_data.py"]
